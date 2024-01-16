@@ -8,7 +8,7 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		// String fileName = args[0];
+		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		//// test1(fileName);
@@ -126,7 +126,7 @@ public class GameOfLife {
 	public static int cellValue(int[][] board, int i, int j) {
 		int cell = 0;
 		int count = count(board, i, j);
-		if (board[i][j] == 1) {
+		if (board[i - 1][j - 1] == 1) {
 			if (count == 2 || count == 3)
 				cell = 1;
 			else
