@@ -28,18 +28,13 @@ public class GameOfLife {
 	// the count and cellValue functions.
 	public static void test2(String fileName) {
 		int[][] board = read(fileName);
-		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board[0].length; j++) {
-				if (board[i][j] == 1) {
-					System.out.println("Cell " + i + " , " + j + " : count = " + count(board, i, j) + " and Value = "
-							+ cellValue(board, i, j));
-					System.out.println();
-				}
-
+		for (int i = 1; i < board.length - 1; i++) {
+			for (int j = 1; j < board[0].length - 1; j++) {
+				System.out.println("Cell " + i + " , " + j + " : count = " + count(board, i, j) + " and Value = "
+						+ cellValue(board, i, j));
+				System.out.println();
 			}
 		}
-		//// Write here code that tests that the count and cellValue functions
-		//// are working properly, and returning the correct values.
 	}
 
 	// Reads the data file, plays the game for Ngen generations,
@@ -125,18 +120,21 @@ public class GameOfLife {
 	// 1.
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
+		int cell = 0;
 		int count = count(board, i, j);
 		if (board[i][j] == 1) {
 			if (count == 2 || count == 3)
-				return 1;
+				cell = 1;
 			else
-				return 0;
-		} else {
-			if (count == 3)
-				return 1;
-			else
-				return 0;
+				cell = 0;
 		}
+		if (board[i][j] == 0) {
+			if (count == 3)
+				cell = 1;
+			else
+				cell = 0;
+		}
+		return cell;
 	}
 
 	// Counts and returns the number of living neighbors of the given cell
