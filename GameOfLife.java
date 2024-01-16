@@ -8,10 +8,11 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = args[0];
+		// String fileName = args[0];
+		String fileName = "line.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//// test1(fileName);
+		test1(fileName);
 		//// test2(fileName);
 		//// test3(fileName, 3);
 		//// play(fileName);
@@ -84,7 +85,7 @@ public class GameOfLife {
 			for (int i = 1; i < rows + 2; i++) {
 				String row = in.readLine();
 				if (row != null && !row.isEmpty()) {
-					for (int j = 0; j < cols; j++) {
+					for (int j = 0; j < row.length(); j++) {
 						if (row.charAt(j) == 'x')
 							board[i][j + 2] = 1;
 						else
