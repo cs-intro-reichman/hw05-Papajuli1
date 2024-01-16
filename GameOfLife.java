@@ -126,7 +126,7 @@ public class GameOfLife {
 	public static int cellValue(int[][] board, int i, int j) {
 		int cell = 0;
 		int count = count(board, i, j);
-		if (board[i - 1][j - 1] == 1) {
+		if (board[i][j] == 1) {
 			if (count == 2 || count == 3)
 				cell = 1;
 			else
