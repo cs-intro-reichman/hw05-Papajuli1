@@ -8,11 +8,12 @@
 public class GameOfLife {
 
 	public static void main(String[] args) {
-		String fileName = args[0];
+		// String fileName = args[0];
+		String fileName = "line.dat";
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//// test1(fileName);
-		//// test2(fileName);
+		test1(fileName);
+		test2(fileName);
 		//// test3(fileName, 3);
 		//// play(fileName);
 	}
@@ -124,20 +125,18 @@ public class GameOfLife {
 	// 1.
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
-		int cell = 0;
 		int count = count(board, i, j);
 		if (board[i][j] == 1) {
 			if (count == 2 || count == 3)
-				cell = 1;
+				return 1;
 			else
-				cell = 0;
+				return 0;
 		} else {
 			if (count == 3)
-				cell = 1;
+				return 1;
 			else
-				cell = 0;
+				return 0;
 		}
-		return cell;
 	}
 
 	// Counts and returns the number of living neighbors of the given cell
