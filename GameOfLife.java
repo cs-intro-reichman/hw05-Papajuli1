@@ -81,7 +81,7 @@ public class GameOfLife {
 				String row = in.readLine();
 				if (row != null && !row.isEmpty()) {
 					for (int j = 1; j < row.length(); j++) {
-						if (row.charAt(j) == 'x')
+						if (row.charAt(j - 1) == 'x')
 							board[i][j] = 1;
 						else
 							board[i][j] = 0;
