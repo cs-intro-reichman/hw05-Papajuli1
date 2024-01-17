@@ -138,25 +138,36 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1.
 	// Assumes that j is at least 1 and at most the number of columns in the board -
 	// 1.
+	// public static int count(int[][] board, int i, int j) {
+	// int count = 0;
+	// if (board[i - 1][j - 1] == 1)
+	// count++;
+	// if (board[i - 1][j] == 1)
+	// count++;
+	// if (board[i - 1][j + 1] == 1)
+	// count++;
+	// if (board[i][j - 1] == 1)
+	// count++;
+	// if (board[i][j + 1] == 1)
+	// count++;
+	// if (board[i + 1][j - 1] == 1)
+	// count++;
+	// if (board[i + 1][j] == 1)
+	// count++;
+	// if (board[i + 1][j + 1] == 1)
+	// count++;
+	// return count;
+	// }
 	public static int count(int[][] board, int i, int j) {
-		int count = 0;
-		if (board[i - 1][j - 1] == 1)
-			count++;
-		if (board[i - 1][j] == 1)
-			count++;
-		if (board[i - 1][j + 1] == 1)
-			count++;
-		if (board[i][j - 1] == 1)
-			count++;
-		if (board[i][j + 1] == 1)
-			count++;
-		if (board[i + 1][j - 1] == 1)
-			count++;
-		if (board[i + 1][j] == 1)
-			count++;
-		if (board[i + 1][j + 1] == 1)
-			count++;
-		return count;
+		int counter = 0;
+		for (int a = i - 1; a <= i + 1; a++) {
+			for (int b = j - 1; b <= j + 1; b++) {
+				if ((board[a][b] == 1) && ((a != i) || (b != j))) {
+					counter++;
+				}
+			}
+		}
+		return counter;
 	}
 
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
