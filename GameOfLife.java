@@ -76,9 +76,9 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		for (int i = 1; i < rows; i++) {
+		for (int i = 1; i <= rows; i++) {
 			String row = in.readLine();
-			for (int j = 1; j < row.length(); j++) {
+			for (int j = 1; j <= row.length(); j++) {
 				if (row.charAt(j - 1) == 'x')
 					board[i][j] = 1;
 				else
@@ -96,8 +96,8 @@ public class GameOfLife {
 		int rows = board.length;
 		int cols = board[0].length;
 		int[][] newboard = new int[rows][cols];
-		for (int i = 1; i < rows - 1; i++) {
-			for (int j = 1; j < cols - 1; j++) {
+		for (int i = 1; i < rows - 2; i++) {
+			for (int j = 1; j < cols - 2; j++) {
 				newboard[i][j] = cellValue(board, i, j);
 			}
 		}
