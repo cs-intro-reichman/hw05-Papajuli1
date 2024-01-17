@@ -75,12 +75,12 @@ public class GameOfLife {
 		In in = new In(fileName); // Constructs an In object for reading the input file
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
-		int[][] board = new int[rows][cols];
+		int[][] board = new int[rows + 2][cols + 2];
 		while (!in.isEmpty()) {
-			for (int i = 0; i < rows; i++) {
+			for (int i = 1; i < rows; i++) {
 				String row = in.readLine();
 				if (row != null && !row.isEmpty()) {
-					for (int j = 0; j < row.length(); j++) {
+					for (int j = 1; j < row.length(); j++) {
 						if (row.charAt(j) == 'x')
 							board[i][j] = 1;
 						else
