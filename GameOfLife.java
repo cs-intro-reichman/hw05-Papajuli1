@@ -95,6 +95,19 @@ public class GameOfLife {
 	public static int[][] evolve(int[][] board) {
 		int rows = board.length;
 		int cols = board[0].length;
+				/* 
+  		notice this general note, running on arr[0].length is right in this case because 
+		the matrix is a rectangle/square but in the case of a 2D array that does not necessarily have the
+		same row length in all rows this code will fail.
+		for example: arr = {
+			{1,2,3},
+			{4},
+			{5,6},
+			{8,9,10,11,12,13,14,15},
+			{}
+		}
+		because of that, we need to run on arr[i].length at each iteration
+  		*/
 		int[][] newboard = new int[rows][cols];
 		for (int i = 1; i < rows - 2; i++) {
 			for (int j = 1; j < cols - 2; j++) {
@@ -139,6 +152,7 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board -
 	// 1.
 	public static int count(int[][] board, int i, int j) {
+		// this is good but why not for?
 		int count = 0;
 		if (board[i - 1][j - 1] == 1)
 			count++;
